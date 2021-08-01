@@ -50,13 +50,13 @@ public class RegisterationController {
 
     @GetMapping("/signup")
     public String getSignupPage(){
-        Role userRole = new Role();
-        userRole.setName("USER");
-        Role adminRole = new Role();
-        adminRole.setName("ADMIN");
-        System.out.println(roleRepository.save(userRole).getName());
-        roleRepository.save(userRole);
-        roleRepository.save(adminRole);
+//        Role userRole = new Role();
+//        userRole.setName("USER");
+//        Role adminRole = new Role();
+//        adminRole.setName("ADMIN");
+//        System.out.println(roleRepository.save(userRole).getName());
+//        roleRepository.save(userRole);
+//        roleRepository.save(adminRole);
         return "signup.html";
     }
 
@@ -76,14 +76,13 @@ public class RegisterationController {
 
         Map uploadResult = cloudinary.uploader().upload(image.getBytes(), ObjectUtils.emptyMap());
 
-        ApplicationUser applicationUser = new ApplicationUser(username , encoder.encode(password));
-        applicationUser.setFullName(fullName);
-        applicationUser.setImage(uploadResult.toString());
-        applicationUser.setDateOfBirth(date);
-        applicationUser.setBio(bio);
+        ApplicationUser applicationUser = new ApplicationUser(uploadResult.get("secure_url").toString(),
+                encoder.encode(password),
+                username ,fullName,bio,date);
+        applicationUser.setRole(securityService.findRoleByName("USER"));
+
         applicationUser = applicationUserRepo.save(applicationUser);
 
-//        applicationUser.setRole(securityService.findRoleByName("USER"));
         Authentication authentication = new UsernamePasswordAuthenticationToken(applicationUser , null , new ArrayList<>());
         SecurityContextHolder.getContext().setAuthentication(authentication);
         return new RedirectView("/");
@@ -91,7 +90,7 @@ public class RegisterationController {
 
     @GetMapping("/login")
     public String getLoginPage(){
-        return "login.html" ;
+        return "login" ;
     }
 }
 
