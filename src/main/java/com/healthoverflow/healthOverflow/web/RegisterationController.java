@@ -50,20 +50,13 @@ public class RegisterationController {
 
     @GetMapping("/signup")
     public String getSignupPage(){
-//        Role userRole = new Role();
-//        userRole.setName("USER");
-//        Role adminRole = new Role();
-//        adminRole.setName("ADMIN");
-//        System.out.println(roleRepository.save(userRole).getName());
-//        roleRepository.save(userRole);
-//        roleRepository.save(adminRole);
         return "signup.html";
     }
 
     @PostMapping("/signup")
     public RedirectView createAppUser(@RequestParam String username , @RequestParam String password
             , @RequestParam String fullName , @RequestParam MultipartFile image
-            , @RequestParam String bio , @RequestParam String dateOfBirth) throws IOException, ParseException {
+            , @RequestParam String bio , @RequestParam String dateOfBirth,@RequestParam String user_doctor) throws IOException, ParseException {
 
         SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd");
         Date date=formatter2.parse(dateOfBirth);
@@ -79,7 +72,7 @@ public class RegisterationController {
         ApplicationUser applicationUser = new ApplicationUser(uploadResult.get("secure_url").toString(),
                 encoder.encode(password),
                 username ,fullName,bio,date);
-        applicationUser.setRole(securityService.findRoleByName("USER"));
+        applicationUser.setRole(securityService.findRoleByName(user_doctor));
 
         applicationUser = applicationUserRepo.save(applicationUser);
 
@@ -87,6 +80,8 @@ public class RegisterationController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         return new RedirectView("/");
     }
+
+
 
     @GetMapping("/login")
     public String getLoginPage(){

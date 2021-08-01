@@ -20,6 +20,10 @@ public class Post{
     @JoinColumn(name="applicationUser_id")
     private ApplicationUser applicationUser;
 
+    @ManyToOne
+    @JoinColumn(name="section_id")
+    private Section section;
+
     public Post() {
     }
 
@@ -51,6 +55,14 @@ public class Post{
 
     public Date getDate() {
         return date;
+    }
+
+    public Section getSection() {
+        return section;
+    }
+
+    public void setSection(Section section) {
+        this.section = section;
     }
 
     public String getFormattedDate(){
