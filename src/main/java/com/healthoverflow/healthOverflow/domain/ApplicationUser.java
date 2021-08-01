@@ -53,6 +53,10 @@ public class ApplicationUser implements UserDetails {
     }
 
 
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
     public List<Post> getPosts() {
         return posts;
     }

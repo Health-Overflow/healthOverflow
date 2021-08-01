@@ -27,10 +27,11 @@ public class Post{
     public Post() {
     }
 
-    public Post(ApplicationUser applicationUser) {
+    public Post(ApplicationUser applicationUser,String body,Section section) {
         this.body = body;
-        applicationUser = applicationUser;
+        this.applicationUser = applicationUser;
         this.date = new Date();
+        this.section=section;
     }
 
     public ApplicationUser getApplicationUser() {
@@ -38,7 +39,7 @@ public class Post{
     }
 
     public void setApplicationUser(ApplicationUser applicationUser) {
-        applicationUser = applicationUser;
+        this.applicationUser = applicationUser;
     }
 
     public Long getId() {
