@@ -20,11 +20,12 @@ public class ApplicationUser implements UserDetails {
     @Column(unique = true)
     private String username;
 
-    private String firstName;
-    private String lastName;
+    private String fullName;
     private String bio;
     private Date dateOfBirth;
 
+    @Column(columnDefinition="TEXT")
+    private String Image;
     @OneToMany(mappedBy = "applicationUser")
     private List<Post> posts;
 
@@ -38,58 +39,23 @@ public class ApplicationUser implements UserDetails {
     private Set<Role> roles = new HashSet<>();
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="UserRel",
-            joinColumns={@JoinColumn(name="UserId")},
-            inverseJoinColumns={@JoinColumn(name="ParentId")})
-    private Set<ApplicationUser> following = new HashSet<>();
-
-    //    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name="UserRel",
-//            joinColumns={@JoinColumn(name="ParentId")},
-//            inverseJoinColumns={@JoinColumn(name="UserId")})
-
-    @ManyToMany(mappedBy="following")
-    private Set<ApplicationUser> followers = new HashSet<>();
 
     public ApplicationUser() {
     }
 
-    public ApplicationUser(String password, String username, String firstName, String lastName, String bio, Date dateOfBirth) {
+    public ApplicationUser(String Image,String password, String username, String fullName, String bio, Date dateOfBirth) {
         this.password = password;
         this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.fullName = fullName;
         this.bio = bio;
         this.dateOfBirth = dateOfBirth;
+        this.Image = Image;
     }
 
-    public Set<ApplicationUser> getFollowers() {
-        return followers;
+    public ApplicationUser(String username, String encode) {
+
     }
 
-    public void setFollowers(Set<ApplicationUser> followers) {
-        this.followers = followers;
-    }
-
-    public Set<ApplicationUser> getFollowing() {
-        return following;
-    }
-
-    public void setFollowing(Set<ApplicationUser> following) {
-        this.following = following;
-    }
-
-    public void addFollowing(ApplicationUser user){
-        this.following.add(user);
-    }
-    public void addFollower(ApplicationUser user){
-        this.followers.add(user);
-    }
-
-    public void deleteFollowing(ApplicationUser user){
-        this.following.remove(user);
-    }
 
     public List<Post> getPosts() {
         return posts;
@@ -107,20 +73,20 @@ public class ApplicationUser implements UserDetails {
         this.username = username;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public String getImage() {
+        return Image;
     }
 
-    public String getLastName() {
-        return lastName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setImage(String image) {
+        Image = image;
     }
 
     public String getBio() {
@@ -131,12 +97,12 @@ public class ApplicationUser implements UserDetails {
         this.bio = bio;
     }
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
     }
 
     public Set<Role> getRoles() {
