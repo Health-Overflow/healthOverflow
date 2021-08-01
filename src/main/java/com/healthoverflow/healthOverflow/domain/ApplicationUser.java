@@ -52,10 +52,6 @@ public class ApplicationUser implements UserDetails {
         this.Image = Image;
     }
 
-    public ApplicationUser(String username, String encode) {
-
-    }
-
 
     public List<Post> getPosts() {
         return posts;
