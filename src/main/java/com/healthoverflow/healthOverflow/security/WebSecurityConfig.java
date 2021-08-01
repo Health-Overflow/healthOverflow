@@ -37,10 +37,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http
-                .cors().disable()
-                .csrf().disable()
+
                 .authorizeRequests()
                 .antMatchers("/","/login","/signup", "/users").permitAll()
+                .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/styles/**","/images/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -51,5 +51,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .and()
                 .exceptionHandling().accessDeniedPage("/access-denied");
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
+
+
+
+
     }
 }
