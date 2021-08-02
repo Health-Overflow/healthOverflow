@@ -2,9 +2,9 @@ INSERT INTO Role (name) VALUES ('USER');
 INSERT INTO Role (name) VALUES ('ADMIN');
 INSERT INTO Role (name) VALUES ('DOCTOR');
 
-INSERT INTO APPLICATION_USER (IMAGE,BIO,DATE_OF_BIRTH,FULL_NAME,PASSWORD,USERNAME) VALUES ('https://res.cloudinary.com/ms98/image/upload/v1627823319/zebodxonx0hw8zsnxaly.png','sssss','   2021-08-10','bader5','$2a$10$9K3P5qEz56d.VVBUxVGYwuSOyfiKrEIeDeDXEpJxbneT0U88ejXpq','ADMIN');
-INSERT INTO APPLICATION_USER (IMAGE,BIO,DATE_OF_BIRTH,FULL_NAME,PASSWORD,USERNAME) VALUES ('https://res.cloudinary.com/ms98/image/upload/v1627823319/zebodxonx0hw8zsnxaly.png','sssss','   2021-08-10','bader5','$2a$10$9K3P5qEz56d.VVBUxVGYwuSOyfiKrEIeDeDXEpJxbneT0U88ejXpq','aseel');
-INSERT INTO APPLICATION_USER (IMAGE,BIO,DATE_OF_BIRTH,FULL_NAME,PASSWORD,USERNAME) VALUES ('https://res.cloudinary.com/ms98/image/upload/v1627823319/zebodxonx0hw8zsnxaly.png','sssss','   2021-08-10','bader5','$2a$10$9K3P5qEz56d.VVBUxVGYwuSOyfiKrEIeDeDXEpJxbneT0U88ejXpq','aseel12');
+INSERT INTO APPLICATION_USER (IMAGE,BIO,DATE_OF_BIRTH,FULL_NAME,PASSWORD,USERNAME) VALUES ('https://res.cloudinary.com/ms98/image/upload/v1627891145/vzb2bjak1h9na3ekovlf.jpg','sssss','   2021-08-10','bader5','$2a$10$9K3P5qEz56d.VVBUxVGYwuSOyfiKrEIeDeDXEpJxbneT0U88ejXpq','ADMIN');
+INSERT INTO APPLICATION_USER (IMAGE,BIO,DATE_OF_BIRTH,FULL_NAME,PASSWORD,USERNAME) VALUES ('https://res.cloudinary.com/ms98/image/upload/v1623855234/small_event4_84874b90a8.jpg','sssss','   2021-08-10','aseel','$2a$10$9K3P5qEz56d.VVBUxVGYwuSOyfiKrEIeDeDXEpJxbneT0U88ejXpq','aseel');
+INSERT INTO APPLICATION_USER (IMAGE,BIO,DATE_OF_BIRTH,FULL_NAME,PASSWORD,USERNAME) VALUES ('https://res.cloudinary.com/ms98/image/upload/v1623850134/medium_event3_414c4bb8d0.jpg','sssss','   2021-08-10','aseel12','$2a$10$9K3P5qEz56d.VVBUxVGYwuSOyfiKrEIeDeDXEpJxbneT0U88ejXpq','aseel12');
 INSERT INTO users_roles (user_id, role_id) VALUES (1, 2); -- user jason has role USER
 INSERT INTO users_roles (user_id, role_id) VALUES (2, 1); -- user jason has role USER
 INSERT INTO users_roles (user_id, role_id) VALUES (3, 3); -- user jason has role USER
