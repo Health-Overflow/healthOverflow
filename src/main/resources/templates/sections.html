@@ -34,7 +34,8 @@
             <h2 th:text="${post.getApplicationUser().fullName}"/>
             <img th:src="${post.getApplicationUser().Image}" alt=""/> </div>
         <p th:text="${post.date}"/>
-        <h3 th:text="${post.body}"/>
+        <p th:text="${post.body}"/>
+        <a th:href="@{'/post/'+${post.getId()}}"> Show Comments</a>
     </div>
 
 </div>

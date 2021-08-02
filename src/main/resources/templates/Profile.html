@@ -40,6 +40,7 @@
         <p th:text="${post.getSection().title}"></p>
         <p th:text="${post.date}"/>
         <p th:text="${post.body}"/>
+        <a th:href="@{'/post/'+${post.getId()}}"> Show Comments</a>
     </div>
 </div>
 
