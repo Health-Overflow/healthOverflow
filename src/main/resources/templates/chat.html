@@ -1,0 +1,71 @@
+<html>
+<head>
+    <title>Chat</title>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script type="text/javascript">
+        var stompClient = null;
+
+        function setConnected(connected) {
+            document.getElementById('conversationDiv').style.visibility
+                = connected ? 'visible' : 'hidden';
+            document.getElementById('response').innerHTML = '';
+        }
+
+        function connect() {
+            var socket = new SockJS('/chat');
+            stompClient = Stomp.over(socket);
+            stompClient.connect({}, function(frame) {
+                setConnected(true);
+                console.log('Connected: ' + frame);
+                stompClient.subscribe('/topic/messages', function(messageOutput) {
+                    showMessageOutput(JSON.parse(messageOutput.body));
+                });
+            });
+        }
+        function getRequest(){
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", "/senduser", false ); // false for synchronous request
+            xmlHttp.send( null );
+            return JSON.parse(xmlHttp.responseText);
+        }
+
+        function sendMessage() {
+            var userMessage = document.getElementById('text').value;
+            var reqData = getRequest();
+            console.log(reqData)
+            stompClient.send("/app/chat", {},
+                JSON.stringify({'userName':reqData.fullName,'userImage':reqData.image, 'userMessage':userMessage}));
+        }
+
+        function showMessageOutput(messageOutput) {
+            var response = document.getElementById('response');
+            var p = document.createElement('p');
+            var image = document.createElement('img');
+            var head3 = document.createElement('h3');
+
+            p.style.wordWrap = 'break-word';
+
+            p.appendChild(document.createTextNode(messageOutput.userMessage));
+            head3.appendChild(document.createTextNode(messageOutput.userName));
+            image.src = messageOutput.userImage;
+            image.alt = messageOutput.userName;
+
+            response.appendChild(image);
+            response.appendChild(head3);
+            response.appendChild(p);
+        }
+    </script>
+</head>
+<body onload="connect()">
+<div>
+    <div id="conversationDiv">
+        <input type="text" id="text" placeholder="Write a message..."/>
+        <button id="sendMessage" onclick="sendMessage();">Send</button>
+        <div id="response"></div>
+    </div>
+</div>
+
+</body>
+</html>
