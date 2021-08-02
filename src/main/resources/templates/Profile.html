@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+
+<div>
+    <img th:src="${user.Image}" alt="">
+    <h2 th:text="${user.fullName}"></h2>
+    <p th:text="${user.bio}"></p>
+    <p th:text="${user.dateOfBirth}"></p>
+    <p sec:authentication="principal.authorities"></p>
+</div>
+
+<div>
+    <form th:action="@{/profile}" method="post">
+
+        <label> Body<textarea name="body"></textarea></label>
+        <select name="sectionName">
+            <option th:each="section:${sections}">
+                <p th:text="${section.title}" >
+                </p></option>
+        </select>
+        <input type="submit" value="Post"/>
+
+    </form>
+</div>
+
+<div>
+    <div th:each="post:${posts}">
+        <p th:text="${post.getSection().title}"></p>
+        <p th:text="${post.date}"/>
+        <p th:text="${post.body}"/>
+    </div>
+</div>
+
+
+</body>
+</html>
