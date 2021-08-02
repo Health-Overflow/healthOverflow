@@ -8,12 +8,12 @@
 hi
 
 <div th:each="section : ${sections}">
-    <p th:text="${section.title}"></p>
-    <img th:src="${section.sectionImage}">
+  <a th:href="@{'/section/'+${section.id}}" >
+      <p th:text="${section.title}"></p></a>
+    <a th:href="@{'/section/'+${section.id}}">
+        <img th:src="${section.sectionImage}"></a>
 </div>
-<form >
 
-</form>
 <a href="/logout">logout</a>
 </body>
 </html>
