@@ -1,11 +1,15 @@
 package com.healthoverflow.healthOverflow.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Entity
+@JsonIgnoreProperties(value = { "comments" })
 public class Post{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +19,14 @@ public class Post{
     private String body;
 
     private Date date;
+private String anonymous;
+
+@OneToMany(mappedBy = "post")
+private List<Comment> comments;
+
+    public List<Comment> getComments() {
+        return comments;
+    }
 
     @ManyToOne
     @JoinColumn(name="applicationUser_id")
@@ -27,11 +39,20 @@ public class Post{
     public Post() {
     }
 
-    public Post(ApplicationUser applicationUser,String body,Section section) {
+    public Post(ApplicationUser applicationUser, String body, Section section, String anonymous) {
         this.body = body;
         this.applicationUser = applicationUser;
         this.date = new Date();
         this.section=section;
+        this.anonymous = anonymous;
+    }
+
+    public String getAnonymous() {
+        return anonymous;
+    }
+
+    public void setAnonymous(String anonymous) {
+        this.anonymous = anonymous;
     }
 
     public ApplicationUser getApplicationUser() {
