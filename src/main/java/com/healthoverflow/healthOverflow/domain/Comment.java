@@ -1,6 +1,7 @@
 package com.healthoverflow.healthOverflow.domain;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Comment {
@@ -9,6 +10,8 @@ public class Comment {
     private Long id;
 
     private String commentBody;
+    private Date date;
+
 
     @ManyToOne
     private Post post;
@@ -20,7 +23,17 @@ public class Comment {
         this.commentBody = commentBody;
         this.post = post;
         this.applicationUser = applicationUser;
+        this.date=new Date();
     }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public Comment(){}
 
     public Long getId() {
