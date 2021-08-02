@@ -1,8 +1,13 @@
 INSERT INTO Role (name) VALUES ('USER');
 INSERT INTO Role (name) VALUES ('ADMIN');
 INSERT INTO Role (name) VALUES ('DOCTOR');
+
 INSERT INTO APPLICATION_USER (IMAGE,BIO,DATE_OF_BIRTH,FULL_NAME,PASSWORD,USERNAME) VALUES ('https://res.cloudinary.com/ms98/image/upload/v1627823319/zebodxonx0hw8zsnxaly.png','sssss','   2021-08-10','bader5','$2a$10$9K3P5qEz56d.VVBUxVGYwuSOyfiKrEIeDeDXEpJxbneT0U88ejXpq','ADMIN');
+INSERT INTO APPLICATION_USER (IMAGE,BIO,DATE_OF_BIRTH,FULL_NAME,PASSWORD,USERNAME) VALUES ('https://res.cloudinary.com/ms98/image/upload/v1627823319/zebodxonx0hw8zsnxaly.png','sssss','   2021-08-10','bader5','$2a$10$9K3P5qEz56d.VVBUxVGYwuSOyfiKrEIeDeDXEpJxbneT0U88ejXpq','aseel');
+INSERT INTO APPLICATION_USER (IMAGE,BIO,DATE_OF_BIRTH,FULL_NAME,PASSWORD,USERNAME) VALUES ('https://res.cloudinary.com/ms98/image/upload/v1627823319/zebodxonx0hw8zsnxaly.png','sssss','   2021-08-10','bader5','$2a$10$9K3P5qEz56d.VVBUxVGYwuSOyfiKrEIeDeDXEpJxbneT0U88ejXpq','aseel12');
 INSERT INTO users_roles (user_id, role_id) VALUES (1, 2); -- user jason has role USER
+INSERT INTO users_roles (user_id, role_id) VALUES (2, 1); -- user jason has role USER
+INSERT INTO users_roles (user_id, role_id) VALUES (3, 3); -- user jason has role USER
 INSERT INTO SECTION (SECTION_IMAGE,TITLE,DESCRIPTION) VALUES('https://domf5oio6qrcr.cloudfront.net/medialibrary/7813/a83db567-4c93-4ad0-af6f-72b57af7675d.jpg','psychology',' psychology is the study of behavior and the mind. The overall scholarly discipline of psychology can be divided into many different specializations, with the most prominent being the following: Clinical, Cognitive, Developmental, Forensic, Health, Occupational, Social');
 INSERT INTO SECTION (SECTION_IMAGE,TITLE,DESCRIPTION) VALUES('https://www.hopkinsmedicine.org/heart_vascular_institute/education/cardiology-training-programs/_images/new-images/adult_congenital_heart_disease_card.jpg','cardiology ','A cardiologist specializes in diagnosing and treating diseases of the cardiovascular system. The cardiologist will carry out tests, and they may perform some procedures, such as heart catheterizations, angioplasty, or inserting a pacemaker.');
 INSERT INTO SECTION (SECTION_IMAGE,TITLE,DESCRIPTION) VALUES('https://images.unsplash.com/photo-1555708982-8645ec9ce3cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80','respiratory','Your respiratory system is the network of organs and tissues that help you breathe. This system helps your body absorb oxygen from the air so your organs can work. It also cleans waste gases, such as carbon dioxide, from your blood. Common problems include allergies, diseases or infections');

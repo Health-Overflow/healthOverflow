@@ -7,6 +7,7 @@ import com.healthoverflow.healthOverflow.infrastructure.ApplicationUserRepo;
 import com.healthoverflow.healthOverflow.infrastructure.CommentRepsitory;
 import com.healthoverflow.healthOverflow.infrastructure.PostRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -27,10 +28,16 @@ public class CommentController {
     private CommentRepsitory commentRepsitory;
     @GetMapping("/post/{id}")
     public String postPage(@PathVariable Long id , Model model){
-
-        model.addAttribute("post",postRepo.findById(id).orElseThrow());
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        ApplicationUser currentUser = applicationUserRepo.findApplicationUserByUsername(userDetails.getUsername());
+        Post post = postRepo.findById(id).orElseThrow();
+        Boolean userEqualsIdPost = post.getApplicationUser().getId() == currentUser.getId();
+        model.addAttribute("post",post);
+        model.addAttribute("userEqualsIdPost",userEqualsIdPost);
         return "PostPage";
     }
+
+//    @PreAuthorize("hasAnyAuthority('ADMIN','DOCTOR')")
     @PostMapping("/post/{id}")
     public RedirectView addComment(@PathVariable Long id, @RequestParam String commentBody){
 

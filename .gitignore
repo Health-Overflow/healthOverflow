@@ -38,5 +38,7 @@ out/
 
 
 # env
-!**/src/main/resource/.env
-!**/src/main/resource/application.properties
+/src/main/resource/.env
+/src/main/resource/application.properties
+.env
+application.properties
