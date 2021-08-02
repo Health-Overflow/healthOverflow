@@ -43,11 +43,12 @@ public class UserController {
     }
 
     @PostMapping("/profile")
-    public RedirectView profileAddPost(@RequestParam String body , @RequestParam String sectionName){
+    public RedirectView profileAddPost(@RequestParam String body , @RequestParam String sectionName, @RequestParam String anonymous){
+        System.out.println("is it ???????????"+anonymous);
        Section section= sectionRepo.findSectionByTitle(sectionName);
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         ApplicationUser currentUser = applicationUserRepo.findApplicationUserByUsername(userDetails.getUsername());
-        Post newPost = new Post(currentUser,body,section);
+        Post newPost = new Post(currentUser,body,section,anonymous);
         postRepo.save(newPost);
         return new RedirectView("/profile");
 

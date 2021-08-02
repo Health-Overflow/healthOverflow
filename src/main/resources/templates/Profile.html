@@ -15,14 +15,21 @@
 </div>
 
 <div>
-    <form th:action="@{/profile}" method="post">
+    <form th:action="@{/profile}"  method="post">
 
         <label> Body<textarea name="body"></textarea></label>
         <select name="sectionName">
+
             <option th:each="section:${sections}">
                 <p th:text="${section.title}" >
                 </p></option>
         </select>
+        <div>
+            <select name="anonymous">
+            <option >True</option>
+            <option >False</option>
+            </select>
+        </div>
         <input type="submit" value="Post"/>
 
     </form>
