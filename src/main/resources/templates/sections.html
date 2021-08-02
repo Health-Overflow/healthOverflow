@@ -14,16 +14,29 @@
 <form th:action="@{'/section/'+${section.getId()}}" method="post">
 
     <label> Body<textarea name="body"></textarea></label>
+    <div>
+        <label> show your name: </label>
+        <select name="anonymous">
+            <option >True</option>
+            <option >False</option>
+        </select>
+    </div>
     <input type="submit" value="Post"/>
 
 </form>
 </div>
 <div>
     <div th:each="post:${posts}">
-        <h2 th:text="${post.getApplicationUser().fullName}"/>
-        <img th:src="${post.getApplicationUser().Image}" alt=""/>
+        <div th:if="${post.getAnonymous()=='True' }">
+            <h2>Anonymous</h2>
+            <img src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255634-stock-illustration-avatar-icon-male-profile-gray.jpg" alt=""/>
+        </div>
+        <div th:if="${post.getAnonymous()=='False' }">
+            <h2 th:text="${post.getApplicationUser().fullName}"/>
+            <img th:src="${post.getApplicationUser().Image}" alt=""/> </div>
         <p th:text="${post.date}"/>
-        <h3 th:text="${post.body}"/>
+        <p th:text="${post.body}"/>
+        <a th:href="@{'/post/'+${post.getId()}}"> Show Comments</a>
     </div>
 
 </div>

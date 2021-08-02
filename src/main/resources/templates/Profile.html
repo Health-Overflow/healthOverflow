@@ -15,14 +15,23 @@
 </div>
 
 <div>
-    <form th:action="@{/profile}" method="post">
+    <form th:action="@{/profile}"  method="post">
 
         <label> Body<textarea name="body"></textarea></label>
+
+        <label>Choose Section</label>
         <select name="sectionName">
             <option th:each="section:${sections}">
                 <p th:text="${section.title}" >
                 </p></option>
         </select>
+        <div>
+            <label> show your name: </label>
+            <select name="anonymous">
+            <option >True</option>
+            <option >False</option>
+            </select>
+        </div>
         <input type="submit" value="Post"/>
 
     </form>
@@ -33,6 +42,7 @@
         <p th:text="${post.getSection().title}"></p>
         <p th:text="${post.date}"/>
         <p th:text="${post.body}"/>
+        <a th:href="@{'/post/'+${post.getId()}}"> Show Comments</a>
     </div>
 </div>
 

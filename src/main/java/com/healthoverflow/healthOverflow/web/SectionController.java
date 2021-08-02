@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
@@ -29,18 +30,17 @@ public class SectionController {
     @GetMapping("/section/{sectionId}")
     public  String sectionName(@PathVariable Long sectionId , Model model){
         Section section = sectionRepo.findById(sectionId).orElseThrow();
-
         System.out.println("......."+section);
         model.addAttribute("section",section);
         model.addAttribute("posts",postRepo.findPostsBySectionId(sectionId));
 return "sections";
     }
 @PostMapping("/section/{sectionId}")
-    public RedirectView postQusetion(@PathVariable Long sectionId,String body){
-    System.out.println("mmmmmmmmmmmmm"+sectionId);
+    public RedirectView postQusetion(@PathVariable Long sectionId,String body,@RequestParam String anonymous){
+    System.out.println("sectioniddddddddddddddddd"+anonymous);
     UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     ApplicationUser currentUser = applicationUserRepo.findApplicationUserByUsername(userDetails.getUsername());
-    Post newPost = new Post(currentUser,body,sectionRepo.findById(sectionId).orElseThrow());
+    Post newPost = new Post(currentUser,body,sectionRepo.findById(sectionId).orElseThrow(),anonymous);
     postRepo.save(newPost);
         return new RedirectView("/section/{sectionId}");
 }

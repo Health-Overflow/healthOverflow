@@ -29,6 +29,13 @@ public class ApplicationUser implements UserDetails {
     @OneToMany(mappedBy = "applicationUser")
     private List<Post> posts;
 
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    @OneToMany(mappedBy = "applicationUser")
+    private List<Comment> comments;
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
