@@ -18,13 +18,15 @@
     <form th:action="@{/profile}"  method="post">
 
         <label> Body<textarea name="body"></textarea></label>
-        <select name="sectionName">
 
+        <label>Choose Section</label>
+        <select name="sectionName">
             <option th:each="section:${sections}">
                 <p th:text="${section.title}" >
                 </p></option>
         </select>
         <div>
+            <label> show your name: </label>
             <select name="anonymous">
             <option >True</option>
             <option >False</option>
