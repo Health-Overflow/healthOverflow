@@ -45,5 +45,4 @@ return "sections";
         return new RedirectView("/section/{sectionId}");
 }
 
-
 }
