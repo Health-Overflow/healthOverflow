@@ -5,40 +5,67 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/styles/signup.css}"
+          href="../static/styles/signup.css">
 </head>
 
 <body>
+<section class="wrapper">
 
-<form th:action="@{/signup}" method="post" enctype="multipart/form-data">
 
-    <h2>Create New Profile</h2>
-    <label> Full name: </label>
-    <input type="text" name="fullName" required />
-    <br>
-    <label> user name: </label>
-    <input type="text" name="username" required />
-    <br>
-    <label> password: </label>
-    <input type="password" name="password" required/>
-    <br>
-    <label> date Of Birth: </label>
-    <input type="date" name="dateOfBirth" required/>
-    <br>
-    <label> your bio: </label>
-    <input type="text" name="bio" required/>
-    <br>
-    <label> Upload profile picture: </label>
-    <input type="file" name="image" accept="image/png, image/jpeg" required />
-    <br>
-    <select name="user_doctor">
-        <option value="DOCTOR">Doctor</option>
-        <option value="USER">Patient</option>
-    </select>
-    <input type="submit" value="create" />
+        <form  th:action="@{/signup}" method="post" enctype="multipart/form-data">
 
-</form>
+<div class="login-box">
+            <div class="user-box">
+                <input type="text" name="fullName" required="">
+                <label>Full Name </label>
+            </div>
+
+            <div class="user-box">
+                <input type="text" name="username" required="">
+                <label>User Name </label>
+            </div>
+
+            <div class="user-box">
+                <input type="password" name="password" required="">
+                <label >Password</label>
+            </div>
+
+            <div class="user-box">
+                <label>data of birth :</label><br><br>
+                <input type="date" name="dateOfBirth" required />
+
+            </div>
+
+            <div class="user-box">
+                <input type="text" name="bio" required/>
+                <label> your bio: </label>
+            </div>
+
+            <div class="user-box">
+                <label> Upload profile picture: </label><br><br>
+                <input type="file" name="image" accept="image/png, image/jpeg" required />
+            </div>
+
+            <select class="user-box" name="user_doctor">
+                <option value="DOCTOR">Doctor</option>
+                <option value="USER">Patient</option>
+            </select>
+       <br>
+    <br>
+    <input class="log btn third" type="submit" value="Submit ">
+
+
+</div>
+        </form>
+
+    </div>
+</section>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+
+</script>
 </body>
 </html>

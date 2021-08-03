@@ -1,22 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/styles/login.css}"
+        href="../static/styles/login.css">
   <title>Log In</title>
 
 </head>
 <body>
 
-<h1>Log in </h1>
-<form th:action="@{/login}" method="post">
+<!--<h1>Log in </h1>-->
+<!--<form th:action="@{/login}" method="post">-->
 
-  <input type="text" name="username" />
-  <br>
-  <br>
-  <input type="password" name="password" />
-  <br>
-  <br>
-  <input type="submit" value="Log In" />
-</form>
+<!--  <input type="text" name="username" />-->
+<!--  <br>-->
+<!--  <br>-->
+<!--  <input type="password" name="password" />-->
+<!--  <br>-->
+<!--  <br>-->
+<!--  <input type="submit" value="Log In" />-->
+
+<!--</form>-->
+
+
+<div class="login-box">
+  <h2>Log in</h2>
+
+  <form th:action="@{/login}" method="post">
+    <div class="user-box">
+      <input type="text" name="username" required="">
+      <label>User name</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="password" required="">
+      <label>Password</label>
+    </div>
+
+   <input class="log btn third" type="submit" value="Log In ">
+  </form>
+
+  <div class="errors-form" th:if="${param.error}">
+    Invalid username and password.
+  </div>
+  <div class="errors-form" th:if="${param.logout}">
+    You have been logged out.
+  </div>
+</div>
+
+
+
 </body>
 </html>
