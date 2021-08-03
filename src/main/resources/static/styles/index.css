@@ -9,13 +9,7 @@ body{
     display: flex;
     align-items: center;
 }
-.banner >*{
-    /*width: 50%;*/
-}
 .banner div{
-    /*position: absolute;*/
-    /*top: 200px;*/
-    /*right: 20px;*/
     width: 40%;
 }
 .banner img{
@@ -42,6 +36,9 @@ body{
 .section-title{
     text-align: center;
     margin: 20px auto 40px;
+}
+.section-content a{
+    text-decoration: none;
 }
 .section-title:after
 {

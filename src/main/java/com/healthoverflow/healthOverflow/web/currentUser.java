@@ -16,9 +16,9 @@ public class currentUser {
 
     @GetMapping("/senduser")
     @ResponseBody
-    public ApplicationUser getCurrentUser(){
+    public String getCurrentUser(){
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        return applicationUserRepo.findApplicationUserByUsername(userDetails.getUsername());
+        ApplicationUser currentUser = applicationUserRepo.findApplicationUserByUsername(userDetails.getUsername());
+        return "{" +"\"fullName\"" + ":\""+currentUser.getFullName() +"\"," + "\"userImage\"" + ":\"" + currentUser.getImage() +"\"}";
     }
 }

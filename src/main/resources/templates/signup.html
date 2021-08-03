@@ -1,21 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" >
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
+    <!--Bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <link rel="stylesheet" th:href="@{/styles/navbar.css}"
+          href="../static/styles/navbar.css">
+    <link rel="stylesheet" th:href="@{/styles/footer.css}"
+          href="../static/styles/footer.css">
     <link rel="stylesheet" th:href="@{/styles/signup.css}"
           href="../static/styles/signup.css">
 </head>
 
 <body>
+<nav th:replace="fragments/navbar.html :: header"></nav>
 <section class="wrapper">
 
 
-        <form  th:action="@{/signup}" method="post" enctype="multipart/form-data">
+    <form th:action="@{/signup}" method="post" enctype="multipart/form-data">
 
-<div class="login-box">
+        <div class="login-box">
             <div class="user-box">
                 <input type="text" name="fullName" required="">
                 <label>Full Name </label>
@@ -28,12 +39,12 @@
 
             <div class="user-box">
                 <input type="password" name="password" required="">
-                <label >Password</label>
+                <label>Password</label>
             </div>
 
             <div class="user-box">
                 <label>data of birth :</label><br><br>
-                <input type="date" name="dateOfBirth" required />
+                <input type="date" name="dateOfBirth" required/>
 
             </div>
 
@@ -44,24 +55,25 @@
 
             <div class="user-box">
                 <label> Upload profile picture: </label><br><br>
-                <input type="file" name="image" accept="image/png, image/jpeg" required />
+                <input type="file" name="image" accept="image/png, image/jpeg" required/>
             </div>
 
             <select class="user-box" name="user_doctor">
                 <option value="DOCTOR">Doctor</option>
                 <option value="USER">Patient</option>
             </select>
-       <br>
-    <br>
-    <input class="log btn third" type="submit" value="Submit ">
+            <br>
+            <br>
+            <input class="log btn third" type="submit" value="Submit ">
 
 
-</div>
-        </form>
+        </div>
+    </form>
 
     </div>
 </section>
 
+<footer th:replace="fragments/footer.html :: footer"></footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous">

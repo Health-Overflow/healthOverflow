@@ -3,8 +3,9 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    margin-bottom: 50px;
+    /*margin-bottom: 50px;*/
     z-index: 1000;
+    background-color: #d3eaf1;
 }
 
 nav h1 a{

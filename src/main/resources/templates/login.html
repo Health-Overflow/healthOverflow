@@ -2,11 +2,22 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" th:href="@{/styles/login.css}"
-        href="../static/styles/login.css">
-  <title>Log In</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styles/login.css}"
+          href="../static/styles/login.css">
+    <title>Log In</title>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
+    <link rel="stylesheet" th:href="@{/styles/navbar.css}"
+          href="../static/styles/navbar.css">
+    <link rel="stylesheet" th:href="@{/styles/footer.css}"
+          href="../static/styles/footer.css">
 </head>
 <body>
 
@@ -22,33 +33,33 @@
 <!--  <input type="submit" value="Log In" />-->
 
 <!--</form>-->
-
+<nav th:replace="fragments/navbar.html :: header"></nav>
 
 <div class="login-box">
-  <h2>Log in</h2>
+    <h2>Log in</h2>
 
-  <form th:action="@{/login}" method="post">
-    <div class="user-box">
-      <input type="text" name="username" required="">
-      <label>User name</label>
+    <form th:action="@{/login}" method="post">
+        <div class="user-box">
+            <input type="text" name="username" required="">
+            <label>User name</label>
+        </div>
+        <div class="user-box">
+            <input type="password" name="password" required="">
+            <label>Password</label>
+        </div>
+
+        <input class="log btn third" type="submit" value="Log In ">
+    </form>
+
+    <div class="errors-form" th:if="${param.error}">
+        Invalid username and password.
     </div>
-    <div class="user-box">
-      <input type="password" name="password" required="">
-      <label>Password</label>
+    <div class="errors-form" th:if="${param.logout}">
+        You have been logged out.
     </div>
-
-   <input class="log btn third" type="submit" value="Log In ">
-  </form>
-
-  <div class="errors-form" th:if="${param.error}">
-    Invalid username and password.
-  </div>
-  <div class="errors-form" th:if="${param.logout}">
-    You have been logged out.
-  </div>
 </div>
 
 
-
+<footer th:replace="fragments/footer.html :: footer"></footer>
 </body>
 </html>

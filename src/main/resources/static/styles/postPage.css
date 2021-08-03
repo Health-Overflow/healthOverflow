@@ -11,7 +11,12 @@
 body{
     background-color: white;
 }
-
+.post-page-section{
+    margin-top: 100px;
+}
+.post-page-section h1{
+    margin-bottom: 40px;
+}
 .A-flex{
     display: flex;
     flex-wrap: wrap;

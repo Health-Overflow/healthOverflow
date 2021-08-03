@@ -31,17 +31,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
           integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <script>
-    const section1 = document.querySelector('.navbar')
-
-    window.addEventListener('scroll', () => {
-      let y = 1 + (window.scrollY || window.pageYOffset) / 150
-      y = y < 1 ? 1 : y // ensure y is always >= 1 (due to Safari's elastic scroll)
-      section1.style.backgroundColor = `#d3eaf1`
-      section1.style.boxShadow = `rgba(0, 0, 0, 0.24) 0px 3px 8px`
-    })
-  </script>
+<script>
+  const section1 = document.querySelector('.navbar')
+  window.addEventListener('scroll', () => {
+    let y = 1 + (window.scrollY || window.pageYOffset) / 150
+    y = y < 1 ? 1 : y // ensure y is always >= 1 (due to Safari's elastic scroll)
+    section1.style.boxShadow = `rgba(0, 0, 0, 0.24) 0px 3px 8px`
+  })
+</script>
 </footer>
 </body>
 </html>
