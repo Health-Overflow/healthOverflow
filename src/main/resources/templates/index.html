@@ -3,17 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--    Slick js-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+          integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+          integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<!--Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" th:href="@{/styles/navbar.css}"
+          href="../static/styles/navbar.css">
+    <link rel="stylesheet" th:href="@{/styles/footer.css}"
+          href="../static/styles/footer.css">
+    <link rel="stylesheet" th:href="@{/styles/index.css}"
+          href="../static/styles/index.css">
 </head>
 <body>
-hi
 
-<div th:each="section : ${sections}">
-  <a th:href="@{'/section/'+${section.id}}" >
-      <p th:text="${section.title}"></p></a>
-    <a th:href="@{'/section/'+${section.id}}">
-        <img th:src="${section.sectionImage}"></a>
+<nav th:replace="fragments/navbar.html :: header"></nav>
+
+<div class="banner">
+    <img src="../static/images/banner.png" th:src="@{/images/banner.png}"/>
+    <div>
+        <h2>Some header</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae blanditiis, dignissimos eligendi, eos error est excepturi exercitationem fugiat ipsum, iusto nam natus porro temporibus voluptatem. Aut dignissimos impedit officia!
+        </p>
+    </div>
 </div>
 
-<a href="/logout">logout</a>
+
+<div class="container" style="position: relative; top: -70px">
+    <h2 class="section-title">Sections</h2>
+    <div class="row justify-content-md-center">
+        <div th:each="section : ${sections}" class="card col-6 col-md-4 col-xl-4 mx-5 mb-5"
+             style="width: 18rem; align-items: center">
+            <a th:href="@{'/section/'+${section.id}}">
+                <img th:src="${section.sectionImage}" class="card-img-top" style="object-fit: cover; height: 250px">
+            </a>
+            <a th:href="@{'/section/'+${section.id}}" class="card-body">
+                <h5 th:text="${section.title}" class="card-title"></h5>
+            </a>
+        </div>
+    </div>
+    <div>
+        <h2 class="section-title">Meet Our Doctors</h2>
+        <div class="doctors-list" style="text-align: center">
+            <div class="doctor-item">
+                <img class="card-img-top"
+                     src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                     alt="Card image cap">
+                <h5 class="card-title">Rashmi Scot Jennings</h5>
+            </div>
+            <div class="doctor-item">
+                <img class="card-img-top" src="https://safemedtrip.com/wp-content/uploads/2015/05/doctor-05.jpg"
+                     alt="Card image cap">
+                <h5 class="card-title">Juniper Dorothee Hersch</h5>
+            </div>
+            <div class="doctor-item">
+                <img class="card-img-top" src="https://aawafi.com/uploads/partners/profile/doctor.jpg" alt="Card image cap">
+                <h5 class="card-title">Teresa Suellen Bothe</h5>
+            </div>
+            <div class="doctor-item">
+                <img class="card-img-top"
+                     src="https://www.independent.ie/irish-news/education/671f1/40328133.ece/AUTOCROP/w620/A%20young%20caring%20doctor"
+                     alt="Card image cap">
+                <h5 class="card-title">René Jeannine Fisher</h5>
+            </div>
+            <div class="doctor-item">
+                <img class="card-img-top"
+                     src="https://lh3.googleusercontent.com/proxy/J3S2w2bRsCig5omiU4QgPKsXhMxN9zS1HwTEAuydYEiQchNofKR5p7cCGpeqRgY8aoIx7sE1J3w58RfuofxQFyFP_amXwG4wjQOLFK44D8qVnJwWhg"
+                     alt="Card image cap">
+                <h5 class="card-title">Sonny Missy Royston</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer th:replace="fragments/footer.html :: footer"></footer>
+
+<script>
+    $('.doctors-list').slick({
+        dots: true,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        arrows: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
+    });
+</script>
 </body>
 </html>
