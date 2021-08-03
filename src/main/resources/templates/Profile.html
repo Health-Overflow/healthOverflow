@@ -9,7 +9,7 @@
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
             rel="stylesheet"
     />
-    <!-- MDB -->
+
     <link
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
             rel="stylesheet"
@@ -21,13 +21,6 @@
 </head>
 <body>
 
-<!--<div>-->
-<!--    <img th:src="${user.Image}" alt="" style="height: 150px">-->
-<!--    <h2 th:text="${user.fullName}"></h2>-->
-<!--    <p th:text="${user.bio}"></p>-->
-<!--    <p th:text="${user.dateOfBirth}"></p>-->
-<!--    <p sec:authentication="principal.authorities"></p>-->
-<!--</div>-->
 <div class="container mt-5 d-flex justify-content-center " style="width: 2000px">
     <div class="card p-3">
         <div class="d-flex align-items-center">
@@ -46,28 +39,7 @@
     </div>
 </div>
 
-<!--<div>-->
-<!--    <form th:action="@{/profile}"  method="post">-->
 
-<!--        <label> Body :</label><textarea name="body"></textarea>-->
-<!--<br>-->
-<!--        <label>Choose Section :</label>-->
-<!--        <select name="sectionName">-->
-<!--            <option th:each="section:${sections}">-->
-<!--                <p th:text="${section.title}" >-->
-<!--                </p></option>-->
-<!--        </select>-->
-<!--        <div>-->
-<!--            <label> show your name: </label>-->
-<!--            <select name="anonymous">-->
-<!--            <option >True</option>-->
-<!--            <option >False</option>-->
-<!--            </select>-->
-<!--        </div>-->
-<!--        <input type="submit" value="Post"/>-->
-
-<!--    </form>-->
-<!--</div>-->
 <div class="container" style="margin-top: 20px;
     margin-left: 300px;
 " >
@@ -144,26 +116,7 @@
     </div>
 </div>
 </div>
-<!--<div >-->
-<!--    <div th:each="post:${posts}">-->
-<!--        <p th:text="${post.getSection().title}"></p>-->
-<!--        <p th:text="${post.date}"/>-->
-<!--        <p th:text="${post.body}"/>-->
-<!--        <a th:href="@{'/post/'+${post.getId()}}"> Show Comments</a>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<div th:each="post : ${posts}" class="w3-container">-->
-<!--    <div class="w3-card-4" style="width:50%;">-->
-<!--        <header class="w3-container w3-blue"> <h1 th:text="${post.getSection().title}" > </h1> </header>-->
-<!--        <div class="w3-container">-->
-<!--            <h2 th:text="${post.body}"></h2></div>-->
-<!--        <footer class="w3-container w3-blue">-->
-<!--            <a th:href="@{'/post/'+${post.getId()}}"> Show Comments</a>-->
-<!--            <p th:text="${post.date}"></p></footer>-->
-<!--    </div>-->
 
-<!--</div>-->
-<!--</div>-->
 
 </body>
 </html>
