@@ -1,0 +1,54 @@
+body{
+    overflow-x: hidden;
+    background-color: #d3eaf1;
+}
+.banner{
+    height: 100vh;
+    position: relative;
+    /*top: -120px;*/
+    display: flex;
+    align-items: center;
+}
+.banner >*{
+    /*width: 50%;*/
+}
+.banner div{
+    /*position: absolute;*/
+    /*top: 200px;*/
+    /*right: 20px;*/
+    width: 40%;
+}
+.banner img{
+    /*width: 50%;*/
+    height: 100vh;
+    object-fit: cover;
+    /*position: absolute;*/
+    z-index: -1;
+    /*top: 0;*/
+    /*display: block;*/
+}
+.doctors-list div img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.doctors-list .doctor-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section-title{
+    text-align: center;
+    margin: 20px auto 40px;
+}
+.section-title:after
+{
+    content:' ';
+    display:block;
+    width: 200px;
+    height: 3px;
+    background-color: #407bff;
+    margin: 10px auto;
+}

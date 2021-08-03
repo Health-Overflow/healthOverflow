@@ -1,0 +1,41 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 50px;
+    z-index: 1000;
+}
+
+nav h1 a{
+    font-size: 28px;
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+}
+nav a{
+    color: white;
+    text-decoration: none;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+nav ul li {
+    margin: 0 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+nav ul li button{
+    background-color: #407bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 18px;
+}

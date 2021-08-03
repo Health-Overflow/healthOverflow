@@ -1,0 +1,28 @@
+footer{
+    background-color: #407bff;
+    text-align: center;
+    margin-bottom: 0;
+    color: white;
+}
+footer p {
+    margin: 0;
+    padding-bottom: 17px;
+    color: white;
+}
+hr{
+    background-color: white;
+}
+footer div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+footer div div{
+    display: flex;
+    align-items: center;
+}
+footer div i {
+    font-size: 30px;
+    color: white;
+    margin: 0 7px;
+}
