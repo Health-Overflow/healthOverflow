@@ -1,0 +1,218 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Satisfy&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+
+}
+body{
+    background-color: white;
+}
+
+.A-flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+.commentList{
+    overflow-y: scroll;
+    height: 100vh;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.cardFlex{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.profileCard{
+    text-align: center;
+    width:500px;
+    height: 200px;
+    box-shadow:0 7px 10px 0 rgba(0, 0, 0, 0.5);
+    border:rebeccapurple solid;
+    background-color:rgba(255,255,255,0.1) ;
+}
+.titlePost{
+    text-align: center;
+    width: 496px;
+    height: 64px;
+    font-size: 22px;
+    font-weight: bold;
+    background-color:rgba(255,255,255,0.1);
+    border-radius: 3px;
+    padding:5px;
+    margin-bottom: 2px;
+}
+.titlePost:hover{
+    background-color:steelblue;
+    color: white;
+    transition: 0.5s;
+}
+
+.card1{
+    margin: 20px;
+    width: 600PX;
+    height: 200PX;
+    text-align: center;
+    background-color:rgba(255,255,255,0.1);
+    border:rebeccapurple solid;
+    box-shadow:0 7px 10px 0 rgba(0, 0, 0, 0.5);
+    transition: 0.5s ease-in-out;
+    border-radius: 5px;
+}
+.card1:hover{
+    transform: translateY(20px);
+}
+.imgPost{
+    width: 200px;
+    height: 70px;
+    object-fit: cover;
+    /*border-radius: 50%;*/
+    margin-top: 1px;
+    margin-bottom: 7px;
+    box-shadow:0 7px 10px 0 rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease-in-out;
+}
+
+.title{
+    text-align: center;
+    width: 596px;
+    height: 38px;
+
+    font-size: 16px;
+    background-color:rgba(255,255,255,0.1);
+    border: solid snow;
+    border-radius: 3px;
+    margin-bottom: 2px;
+}
+
+.title:hover{
+    background-color:steelblue;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+
+.card-white  .card-heading {
+    color: #333;
+    background-color: #fff;
+    border-color: #ddd;
+    border: 1px solid #dddddd;
+}
+.card-white  .card-footer {
+    background-color: #fff;
+    border-color: #ddd;
+}
+.card-white .h5 {
+    font-size:14px;
+//font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.card-white .time {
+    font-size:12px;
+//font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.post .post-heading {
+    height: 95px;
+    padding: 20px 15px;
+}
+.post .post-heading .avatar {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin-right: 15px;
+}
+.post .post-heading .meta .title {
+    margin-bottom: 0;
+}
+.post .post-heading .meta .title a {
+    color: black;
+}
+.post .post-heading .meta .title a:hover {
+    color: #aaaaaa;
+}
+.post .post-heading .meta .time {
+    margin-top: 8px;
+    color: #999;
+}
+.post .post-image .image {
+    width: 100%;
+    height: auto;
+}
+.post .post-description {
+    padding: 15px;
+}
+.post .post-description p {
+    font-size: 14px;
+}
+.post .post-description .stats {
+    margin-top: 20px;
+}
+.post .post-description .stats .stat-item {
+    display: inline-block;
+    margin-right: 15px;
+}
+.post .post-description .stats .stat-item .icon {
+    margin-right: 8px;
+}
+.post .post-footer {
+    border-top: 1px solid #ddd;
+    padding: 15px;
+}
+.post .post-footer .input-group-addon a {
+    color: #454545;
+}
+.post .post-footer .comments-list {
+    padding: 0;
+    margin-top: 20px;
+    list-style-type: none;
+}
+.post .post-footer .comments-list .comment {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+}
+.post .post-footer .comments-list .comment .avatar {
+    width: 35px;
+    height: 35px;
+}
+.post .post-footer .comments-list .comment .comment-heading {
+    display: block;
+    width: 100%;
+}
+.post .post-footer .comments-list .comment .comment-heading .user {
+    font-size: 14px;
+    font-weight: bold;
+    display: inline;
+    margin-top: 0;
+    margin-right: 10px;
+}
+.post .post-footer .comments-list .comment .comment-heading .time {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 0;
+    display: inline;
+}
+.post .post-footer .comments-list .comment .comment-body {
+    margin-left: 50px;
+}
+.post .post-footer .comments-list .comment > .comments-list {
+    margin-left: 50px;
+}
+
+
+textarea{
+    width: 642px;
+    height: 103px;
+}
