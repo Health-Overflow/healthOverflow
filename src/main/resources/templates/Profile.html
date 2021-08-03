@@ -3,49 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <title>Profile</title>
+    <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
+            rel="stylesheet"
+    />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" th:href="@{/styles/profile.css}"/>
 </head>
 <body>
 
-<div>
-    <img th:src="${user.Image}" alt="">
-    <h2 th:text="${user.fullName}"></h2>
-    <p th:text="${user.bio}"></p>
-    <p th:text="${user.dateOfBirth}"></p>
-    <p sec:authentication="principal.authorities"></p>
-</div>
-
-<div>
-    <form th:action="@{/profile}"  method="post">
-
-        <label> Body<textarea name="body"></textarea></label>
-
-        <label>Choose Section</label>
-        <select name="sectionName">
-            <option th:each="section:${sections}">
-                <p th:text="${section.title}" >
-                </p></option>
-        </select>
-        <div>
-            <label> show your name: </label>
-            <select name="anonymous">
-            <option >True</option>
-            <option >False</option>
-            </select>
+<!--<div>-->
+<!--    <img th:src="${user.Image}" alt="" style="height: 150px">-->
+<!--    <h2 th:text="${user.fullName}"></h2>-->
+<!--    <p th:text="${user.bio}"></p>-->
+<!--    <p th:text="${user.dateOfBirth}"></p>-->
+<!--    <p sec:authentication="principal.authorities"></p>-->
+<!--</div>-->
+<div class="container mt-5 d-flex justify-content-center " style="width: 2000px">
+    <div class="card p-3">
+        <div class="d-flex align-items-center">
+            <div class="image"> <img th:src="${user.Image}" class="rounded" width="140"> </div>
+            <div class="ml-3 w-100">
+                <h4 class="mb-0 mt-0" th:text="${user.fullName}"></h4> <span>patience</span>
+                <h4 class="mb-0 mt-0" th:text="${user.bio}"></h4>
+                <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+                    <div class="d-flex flex-column"> <span class="articles">Post</span> <span class="number1">38</span> </div>
+                    <div class="d-flex flex-column"> <span class="followers">Comment</span> <span class="number2">980</span> </div>
+                    <div class="d-flex flex-column"> <span class="rating">Rating</span> <span class="number3">8.9</span> </div>
+                </div>
+                <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100">Chat</button> <button class="btn btn-sm btn-primary w-100 ml-2">Clear All Posts</button> </div>
+            </div>
         </div>
-        <input type="submit" value="Post"/>
-
-    </form>
-</div>
-
-<div>
-    <div th:each="post:${posts}">
-        <p th:text="${post.getSection().title}"></p>
-        <p th:text="${post.date}"/>
-        <p th:text="${post.body}"/>
-        <a th:href="@{'/post/'+${post.getId()}}"> Show Comments</a>
     </div>
 </div>
 
+<!--<div>-->
+<!--    <form th:action="@{/profile}"  method="post">-->
+
+<!--        <label> Body :</label><textarea name="body"></textarea>-->
+<!--<br>-->
+<!--        <label>Choose Section :</label>-->
+<!--        <select name="sectionName">-->
+<!--            <option th:each="section:${sections}">-->
+<!--                <p th:text="${section.title}" >-->
+<!--                </p></option>-->
+<!--        </select>-->
+<!--        <div>-->
+<!--            <label> show your name: </label>-->
+<!--            <select name="anonymous">-->
+<!--            <option >True</option>-->
+<!--            <option >False</option>-->
+<!--            </select>-->
+<!--        </div>-->
+<!--        <input type="submit" value="Post"/>-->
+
+<!--    </form>-->
+<!--</div>-->
+<div class="container" style="margin-top: 20px;
+    margin-left: 300px;
+" >
+    <div class="row">
+        <div class="col-8">
+            <div class="card card-white post">
+                <div class="post-description">
+                    <form th:action="@{/profile}" method="post">
+                        <h4>Add A New Question: </h4>
+                        <label> <textarea placeholder="Type You Post...." name="body" required></textarea></label>
+                        <div>
+                            <br>
+                                    <label>Choose Section :</label>
+                                    <select name="sectionName">
+                                        <option th:each="section:${sections}">
+                                            <p th:text="${section.title}" >
+                                            </p></option>
+                                    </select>
+                            <select name="anonymous">
+                                <option >Show Your Name</option>
+                                <option >Post As Anonymous</option>
+                            </select>
+                        </div>
+                        <input style="margin-top: 5px" type="submit" value="Post" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container" style="margin-top: 20px; margin-bottom: 20px;
+        position: relative;
+    left: 127px;
+">
+
+        <div class="row">
+            <div class="col-8">
+                <div class="card card-white post">
+                    <div th:each="post:${posts}">
+                    <div th:if="${post.getAnonymous()=='Show Your Name' }">
+                        <div class="post-heading">
+                            <div class="float-left image">
+                                <img th:src="${post.getApplicationUser().Image}" class="img-circle avatar" alt="user profile image">
+                            </div>
+                            <div class="float-left meta">
+                                <div class="title h5">
+                                    <b th:text="${post.getApplicationUser().fullName}"></b>
+                                </div>
+                                <h6 class="text-muted time" th:text="${post.date}"></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div th:if="${post.getAnonymous()=='Post As Anonymous' }">
+                        <div class="post-heading">
+                            <div class="float-left image">
+                                <img src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255634-stock-illustration-avatar-icon-male-profile-gray.jpg" class="img-circle avatar" alt="user profile image">
+                            </div>
+                            <div class="float-left meta">
+                                <div class="title h5">
+                                    <b>Anonymous</b>
+                                </div>
+                                <h6 class="text-muted time" th:text="${post.date}"></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-description">
+                        <p th:text="${post.body}"></p>
+                        <a th:href="@{'/post/'+${post.getId()}}"> Show Comments</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--<div >-->
+<!--    <div th:each="post:${posts}">-->
+<!--        <p th:text="${post.getSection().title}"></p>-->
+<!--        <p th:text="${post.date}"/>-->
+<!--        <p th:text="${post.body}"/>-->
+<!--        <a th:href="@{'/post/'+${post.getId()}}"> Show Comments</a>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div th:each="post : ${posts}" class="w3-container">-->
+<!--    <div class="w3-card-4" style="width:50%;">-->
+<!--        <header class="w3-container w3-blue"> <h1 th:text="${post.getSection().title}" > </h1> </header>-->
+<!--        <div class="w3-container">-->
+<!--            <h2 th:text="${post.body}"></h2></div>-->
+<!--        <footer class="w3-container w3-blue">-->
+<!--            <a th:href="@{'/post/'+${post.getId()}}"> Show Comments</a>-->
+<!--            <p th:text="${post.date}"></p></footer>-->
+<!--    </div>-->
+
+<!--</div>-->
+<!--</div>-->
 
 </body>
 </html>
