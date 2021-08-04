@@ -68,7 +68,7 @@
                                 <option value="False">Post As Anonymous</option>
                             </select>
                         </div>
-                        <input style="margin-top: 5px" type="submit" value="Post"/>
+                        <input style="margin-top: 5px" type="submit" value="Post" class="button"/>
                     </form>
                 </div>
             </div>
@@ -81,7 +81,7 @@
     <div class="container" style="margin-top: 20px; margin-bottom: 20px">
         <div class="row">
             <div class="col-8">
-                <div class="card card-white post">
+                <div class="card card-white post cardBlue">
 
                     <div th:if="${post.getAnonymous()=='True' }">
                         <div class="post-heading">
@@ -113,7 +113,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="post-description">
                         <p th:text="${post.body}"></p>
                         <a th:href="@{'/post/'+${post.getId()}}"> Show Comments</a>

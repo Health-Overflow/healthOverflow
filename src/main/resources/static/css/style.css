@@ -151,3 +151,14 @@ textarea{
     width: 642px;
     height: 103px;
 }
+.button{
+    background-color: #0077B6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 70px;
+    height: 30px;
+}
+.cardBlue{
+    background-color: #EBF0F8;
+}

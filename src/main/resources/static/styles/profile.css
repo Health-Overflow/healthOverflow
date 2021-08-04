@@ -16,7 +16,8 @@ body{
 }
 .profile-info{
     margin: 60px auto auto;
-    background-color: white;
+    background-color: #EBF0F8;
+    box-shadow:0 7px 10px 0 rgba(0, 0, 0, 0.5);
     border-radius: 20px;
     padding: 60px;
     /*width: 600px;*/
@@ -171,4 +172,19 @@ form .form-selects label{
 }
 .post .post-footer .comments-list .comment > .comments-list {
     margin-left: 50px;
+}
+.button{
+    background-color: #0077B6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 70px;
+    height: 30px;
+}
+.post-description h4{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.cardBlue{
+    background-color: #EBF0F8;
 }
