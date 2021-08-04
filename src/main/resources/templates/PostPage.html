@@ -62,25 +62,88 @@
                 <form th:action="@{'/post/'+${post.id}}" method="post">
                     <h4>Add comment: </h4>
                     <label><textarea name="commentBody" required></textarea></label>
-                    <input style="margin-top: 5px ; width:150px " class="button" type="submit" value="Post"/>
+
+                    <div class="btnSelect1">
+                        <select name="anonymous">
+                            <option value="True">Show Your Name</option>
+                            <option value="False">Post As Anonymous</option>
+                        </select>
+                        <input style="margin-top: 5px ; width:150px " class="button" type="submit" value="Post"/>
+                    </div>
                 </form>
             </div>
             <div class="post-description" th:unless="${userEqualsIdPost}">
                 <form sec:authorize="hasAnyAuthority('DOCTOR')" th:action="@{'/post/'+${post.id}}" method="post">
                     <h4>Add comment: </h4>
                     <label><textarea name="commentBody" required></textarea></label>
-                    <input style="margin-top: 5px ; width: 150px" type="submit" class="button" value="Post"/>
+                    <div class="btnSelect1">
+                        <select name="anonymous">
+                            <option value="True">Show Your Name</option>
+                            <option value="False">Post As Anonymous</option>
+                        </select>
+                        <input style="margin-top: 5px ; width: 150px" type="submit" class="button" value="Post"/>
+                    </div>
                 </form>
             </div>
-            <div class="cardFlex">
-                <div class="card1" th:each="comment:${post.getComments}">
-                    <img class="imgPost" th:src="${comment.getApplicationUser().Image}">
-                    <h3 class="title" th:text="${comment.getApplicationUser().fullName}"></h3>
-                    <p class="title" th:text="${comment.date}"></p>
-                    <p class="title" th:text="${comment.commentBody}"></p>
+<!--            <div class="cardFlex">-->
+<!--                <div class="card1" th:each="comment:${post.getComments}">-->
+<!--                    <div th:if="${comment.anonymous=='False'}">-->
+<!--                    <img class="imgPost" th:src="${comment.getApplicationUser().Image}">-->
+<!--                    <h3 class="title" th:text="${comment.getApplicationUser().fullName}"></h3></div>-->
+<!--                    <div th:if="${comment.anonymous=='True'}">-->
+<!--                        <img src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255634-stock-illustration-avatar-icon-male-profile-gray.jpg"-->
+<!--                             class="imgPost" alt="user profile image">-->
+<!--                        <h3 class="title">Anonymous</h3>-->
+<!--                    </div>-->
+<!--                    <p class="title" th:text="${comment.date}"></p>-->
+<!--                    <p class="title" th:text="${comment.commentBody}"></p>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div th:each="comment:${post.getComments}">
+                <div class="container" style="margin-top: 20px; margin-bottom: 20px">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="card card-white post cardBlue">
+                                <div th:if="${comment.getAnonymous()=='True' }">
+                                    <div class="post-heading">
+                                        <div class="float-left image">
+                                            <img th:src="${comment.getApplicationUser().Image}" class="img-circle avatar"
+                                                 alt="user profile image">
+                                        </div>
+                                        <div class="float-left meta">
+                                            <div class=" h5">
+                                                <b th:text="${comment.getApplicationUser().fullName}"></b>
+                                            </div>
+                                            <h6 class="text-muted time" th:text="${post.date}"></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div th:if="${comment.getAnonymous()=='False' }">
+                                    <div class="post-heading">
+                                        <div class="float-left image">
+                                            <img src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255634-stock-illustration-avatar-icon-male-profile-gray.jpg"
+                                                 class="img-circle avatar" alt="user profile image">
+                                        </div>
+                                        <div class="float-left meta">
+                                            <div class=" h5">
+                                                <b>Anonymous</b>
+                                            </div>
+                                            <h6 class="text-muted time" th:text="${comment.date}"></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="post-description">
+                                    <p class="commentBody1" th:text="${comment.commentBody}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
+
+    </div>
     </div>
 </section>
 

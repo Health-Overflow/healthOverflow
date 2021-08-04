@@ -11,7 +11,7 @@ public class Comment {
 
     private String commentBody;
     private Date date;
-
+private String anonymous;
 
     @ManyToOne
     private Post post;
@@ -19,11 +19,20 @@ public class Comment {
     @ManyToOne
     private ApplicationUser applicationUser;
 
-    public Comment(String commentBody, Post post, ApplicationUser applicationUser) {
+    public String getAnonymous() {
+        return anonymous;
+    }
+
+    public void setAnonymous(String anonymous) {
+        this.anonymous = anonymous;
+    }
+
+    public Comment(String commentBody, Post post, ApplicationUser applicationUser, String anonymous) {
         this.commentBody = commentBody;
         this.post = post;
         this.applicationUser = applicationUser;
         this.date=new Date();
+        this.anonymous=anonymous;
     }
 
     public Date getDate() {
