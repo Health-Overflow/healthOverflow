@@ -28,28 +28,48 @@
 <section class="post-page-section">
     <div class="A-flex">
 
-        <div>
-            <h1>this post page </h1>
-            <div class="profileCard">
-                <p class="titlePost" th:text="${post.getSection().title}"></p>
-                <p class="titlePost" th:text="${post.date}"/>
-                <p class="titlePost" th:text="${post.body}"/>
+        <!--        <div>-->
+        <!--            <h1>this post page </h1>-->
+        <!--            <div class="profileCard">-->
+        <!--                <p class="titlePost" th:text="${post.getSection().title}"></p>-->
+        <!--                <p class="titlePost" th:text="${post.date}"/>-->
+        <!--                <p class="titlePost" th:text="${post.body}"/>-->
+        <!--            </div>-->
+        <!--        </div>-->
+
+
+        <div class=" post-list">
+            <div class="card card-white post cardBlue">
+                <div class="post-heading">
+                    <div class="float-left meta">
+                        <div class="title h5">
+                            <a th:href="@{'/section/'+${post.getSection().id}}"
+                               th:text="${post.getSection().title}"></a>
+                        </div>
+                        <h6 class="text-muted time" th:text="${post.date}"></h6>
+                    </div>
+                </div>
+                <div class="post-description">
+                    <p class="post-content" th:text="${post.body}"></p>
+                </div>
             </div>
         </div>
 
-        <div class="card card-white post commentList">
+
+        <div class="card card-white post commentList" >
+            <h2>Comments</h2>
             <div class="post-description" th:if="${userEqualsIdPost}">
                 <form th:action="@{'/post/'+${post.id}}" method="post">
                     <h4>Add comment: </h4>
                     <label><textarea name="commentBody" required></textarea></label>
-                    <input style="margin-top: 5px ; width:150px " type="submit" value="Post"/>
+                    <input style="margin-top: 5px ; width:150px " class="button" type="submit" value="Post"/>
                 </form>
             </div>
             <div class="post-description" th:unless="${userEqualsIdPost}">
                 <form sec:authorize="hasAnyAuthority('DOCTOR')" th:action="@{'/post/'+${post.id}}" method="post">
                     <h4>Add comment: </h4>
                     <label><textarea name="commentBody" required></textarea></label>
-                    <input style="margin-top: 5px ; width: 150px" type="submit" value="Post"/>
+                    <input style="margin-top: 5px ; width: 150px" type="submit" class="button" value="Post"/>
                 </form>
             </div>
             <div class="cardFlex">

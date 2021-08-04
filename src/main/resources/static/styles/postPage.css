@@ -24,8 +24,10 @@ body{
 
 }
 .commentList{
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
     height: 100vh;
+  min-height: 100vh;
+    min-width: 400px;
 }
 form{
     display: flex;
@@ -45,25 +47,25 @@ form{
     width:500px;
     height: 200px;
     box-shadow:0 7px 10px 0 rgba(0, 0, 0, 0.5);
-    border:rebeccapurple solid;
-    background-color:rgba(255,255,255,0.1) ;
+    border:#EBF0F8 solid;
+    background-color:#EBF0F8 ;
 }
 .titlePost{
     text-align: center;
     width: 496px;
     height: 64px;
-    font-size: 22px;
+    font-size: 15px;
     font-weight: bold;
     background-color:rgba(255,255,255,0.1);
     border-radius: 3px;
     padding:5px;
     margin-bottom: 2px;
 }
-.titlePost:hover{
-    background-color:steelblue;
-    color: white;
-    transition: 0.5s;
-}
+/*.titlePost:hover{*/
+/*    background-color:steelblue;*/
+/*    color: white;*/
+/*    transition: 0.5s;*/
+/*}*/
 
 .card1{
     margin: 20px;
@@ -71,7 +73,7 @@ form{
     height: 200PX;
     text-align: center;
     background-color:rgba(255,255,255,0.1);
-    border:rebeccapurple solid;
+    border: #0077B6 solid;
     box-shadow:0 7px 10px 0 rgba(0, 0, 0, 0.5);
     transition: 0.5s ease-in-out;
     border-radius: 5px;
@@ -113,7 +115,6 @@ form{
 .card-white  .card-heading {
     color: #333;
     background-color: #fff;
-    border-color: #ddd;
     border: 1px solid #dddddd;
 }
 .card-white  .card-footer {
@@ -220,4 +221,20 @@ form{
 textarea{
     width: 642px;
     height: 103px;
+}
+
+.button{
+    background-color: #0077B6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 70px;
+    height: 30px;
+}
+.cardBlue{
+    background-color: #EBF0F8;
+}
+
+.post-list{
+    margin-bottom: 40px;
 }

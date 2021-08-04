@@ -7,7 +7,6 @@ import com.healthoverflow.healthOverflow.infrastructure.ApplicationUserRepo;
 import com.healthoverflow.healthOverflow.infrastructure.CommentRepsitory;
 import com.healthoverflow.healthOverflow.infrastructure.PostRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
