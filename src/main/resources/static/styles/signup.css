@@ -7,7 +7,7 @@ body {
     margin:0;
     padding:0;
     font-family: sans-serif;
-    background-color: #141e30 ;
+    background-color: white ;
 }
 
 .login-box {
@@ -15,12 +15,12 @@ body {
     /*position: absolute;*/
     /*top: 50%;*/
     /*left: 50%;*/
-    margin: 150px auto 80px;
+    margin: 80px auto 80px;
     width: 490px;
     height: 750px;
     padding: 40px;
     /*transform: translate(-50%, -50%);*/
-    background: rgba(0,0,0,.5);
+    background-color: #0077B6;
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
@@ -63,7 +63,7 @@ body {
 .login-box .user-box input:valid ~ label {
     top: -20px;
     left: 0;
-    color: #03e9f4;
+    color: black;
     font-size: 12px;
 }
 
@@ -71,7 +71,7 @@ body {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
-    color: #03e9f4;
+    color: black;
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
@@ -85,10 +85,10 @@ body {
     background: #03e9f4;
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #03e9f4,
-    0 0 25px #03e9f4,
-    0 0 50px #03e9f4,
-    0 0 100px #03e9f4;
+    /*box-shadow: 0 0 5px #03e9f4,*/
+    /*0 0 25px #03e9f4,*/
+    /*0 0 50px #03e9f4,*/
+    /*0 0 100px #03e9f4;*/
 }
 
 .login-box .log span {
@@ -119,7 +119,7 @@ body {
     right: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #03e9f4);
+    /*background: linear-gradient(180deg, transparent, #03e9f4);*/
     animation: btn-anim2 1s linear infinite;
     animation-delay: .25s
 }
@@ -138,7 +138,7 @@ body {
     right: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent, #03e9f4);
+    /*background: linear-gradient(270deg, transparent, #03e9f4);*/
     animation: btn-anim3 1s linear infinite;
     animation-delay: .5s
 }
@@ -157,7 +157,7 @@ body {
     left: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(360deg, transparent, #03e9f4);
+    /*background: linear-gradient(360deg, transparent, #03e9f4);*/
     animation: btn-anim4 1s linear infinite;
     animation-delay: .75s
 }
@@ -177,13 +177,11 @@ body {
     font-family: "Nunito", sans-serif;
     font-size: medium;
 }
- .btn {
+.btn {
     box-sizing: border-box;
     appearance: none;
-    background-color: transparent;
-
+    /*background-color: transparent;*/
     border-radius: 0.6em;
-
     cursor: pointer;
     display: flex;
     align-self: center;
@@ -197,12 +195,14 @@ body {
     text-transform: uppercase;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
-    box-shadow: 0 0 10px 0 #141e30 inset, 0 0 10px 4px #141e30;
-    border-color: #141e30;
-    color: #fff;
-    box-shadow: 0 0 40px 40px #141e30 inset, 0 0 0 0 #141e30;
+    /*box-shadow: 0 0 10px 0 #141e30 inset, 0 0 10px 4px #141e30;*/
+    border-color: #d3eaf1;
+    color: white;
+    /*box-shadow: 0 0 40px 40px #141e30 inset, 0 0 0 0 #141e30;*/
     transition: all 150ms ease-in-out;
-    color: #141e30;
+    background-color:#d3eaf1 ;
+
+
 }
 
 hover, focus {
@@ -211,10 +211,10 @@ hover, focus {
 }
 
 
- .third {
-    border-color: #141e30;
-    color: #fff;
-    box-shadow: 0 0 40px 40px #141e30 inset, 0 0 0 0 #141e30;
+.third {
+    border-color: #d3eaf1;
+    color: black;
+    /*box-shadow: 0 0 40px 40px #141e30 inset, 0 0 0 0 #141e30;*/
     transition: all 150ms ease-in-out;
 }
 

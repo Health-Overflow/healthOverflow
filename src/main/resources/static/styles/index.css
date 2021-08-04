@@ -1,6 +1,7 @@
 body{
     overflow-x: hidden;
-    background-color: #d3eaf1;
+    background-color: white;
+
 }
 .banner{
     height: 100vh;
@@ -48,4 +49,8 @@ body{
     height: 3px;
     background-color: #407bff;
     margin: 10px auto;
+}
+.ourDoctors{
+    background-color:#EBF0F8 ;
+    width: 100%;
 }
