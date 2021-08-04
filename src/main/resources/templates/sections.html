@@ -40,7 +40,7 @@
         class="carousel slide carousel-fade carousel-dark"
         data-mdb-ride="carousel">
     <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div class="carousel-item active banner-content">
             <img th:src="${section.getSectionImage()}"
                  class="d-block w-100 section-banner"
                  alt="..."
@@ -54,7 +54,7 @@
 </div>
 
 
-<div class="container" style="margin-top: 20px">
+<div class="container" style="margin-top: 20px; margin-bottom: 20px">
     <div class="row">
         <div class="col-8">
             <div class="card card-white post">
@@ -64,8 +64,8 @@
                         <label> <textarea name="body" required></textarea></label>
                         <div>
                             <select name="anonymous">
-                                <option>Show Your Name</option>
-                                <option>Post As Anonymous</option>
+                                <option value="True">Show Your Name</option>
+                                <option value="False">Post As Anonymous</option>
                             </select>
                         </div>
                         <input style="margin-top: 5px" type="submit" value="Post"/>
@@ -83,7 +83,7 @@
             <div class="col-8">
                 <div class="card card-white post">
 
-                    <div th:if="${post.getAnonymous()=='Show Your Name' }">
+                    <div th:if="${post.getAnonymous()=='True' }">
                         <div class="post-heading">
                             <div class="float-left image">
                                 <img th:src="${post.getApplicationUser().Image}" class="img-circle avatar"
@@ -99,7 +99,7 @@
                     </div>
 
 
-                    <div th:if="${post.getAnonymous()=='Post As Anonymous' }">
+                    <div th:if="${post.getAnonymous()=='False' }">
                         <div class="post-heading">
                             <div class="float-left image">
                                 <img src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255634-stock-illustration-avatar-icon-male-profile-gray.jpg"

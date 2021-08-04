@@ -1,20 +1,33 @@
 #panelH5 {
-    background-color: rgba(2,5,5,0.3);
+    /*background-color: rgba(2,5,5,0.3);*/
     color: white;
     font-size: 77px;
-    padding-bottom: 298px;
-    padding-top: 300px;
-    margin-left: -203px;
-    margin-right: -207px;
-    margin-bottom: -249px;
+    /*padding-bottom: 298px;*/
+    /*padding-top: 300px;*/
+    /*margin-left: -203px;*/
+    /*margin-right: -207px;*/
+    /*margin-bottom: -249px;*/
 
 }
-
+.banner-content{
+    position: relative;
+}
 .section-banner{
     height: 650px;
     width: 100%;
+    object-fit: cover;
 }
-
+.banner-content:after{
+    content: '\A';
+    /*display: block;*/
+    width: 100%; height:100%;
+    background-color: rgba(2,5,5,0.3);
+    position: absolute;
+    top: 0;
+    /*bottom: 0;*/
+    left: 0;
+    /*right: 0;*/
+}
 #panelText{
     color: white;
     padding-bottom: 117px;
