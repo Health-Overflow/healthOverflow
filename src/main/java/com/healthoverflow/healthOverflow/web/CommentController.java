@@ -38,12 +38,12 @@ public class CommentController {
 
 //    @PreAuthorize("hasAnyAuthority('ADMIN','DOCTOR')")
     @PostMapping("/post/{id}")
-    public RedirectView addComment(@PathVariable Long id, @RequestParam String commentBody){
+    public RedirectView addComment(@PathVariable Long id, @RequestParam String commentBody,@RequestParam String anonymous){
 
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         ApplicationUser currentUser = applicationUserRepo.findApplicationUserByUsername(userDetails.getUsername());
         Post post =postRepo.findById(id).orElseThrow();
-        Comment comment = new Comment(commentBody,post,currentUser);
+        Comment comment = new Comment(commentBody,post,currentUser,anonymous);
         commentRepsitory.save(comment);
         return new RedirectView("/post/{id}");
     }
