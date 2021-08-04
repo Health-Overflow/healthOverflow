@@ -32,8 +32,9 @@ nav ul li {
 }
 
 nav ul li button{
-    background-color: #407bff;
-    color: white;
+
+    background-color: transparent;
+    color: black;
     border: none;
     cursor: pointer;
     padding: 8px;
