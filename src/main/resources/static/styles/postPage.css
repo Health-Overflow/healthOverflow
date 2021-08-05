@@ -28,7 +28,7 @@ body{
     /*height: 100vh;*/
   min-height: 100vh;
     min-width: 400px;
-    max-width: 50%;
+    max-width: 48%;
 }
 form{
     display: flex;
@@ -238,6 +238,7 @@ textarea{
 
 .post-list{
     margin-bottom: 40px;
+    max-width: 48%;
 }
 .card-white  .card-heading {
     color: #333;
