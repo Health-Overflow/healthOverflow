@@ -27,8 +27,7 @@ body{
     /*overflow-y: scroll;*/
     /*height: 100vh;*/
   min-height: 100vh;
-    min-width: 400px;
-    max-width: 48%;
+    width: 48%;
 }
 form{
     display: flex;

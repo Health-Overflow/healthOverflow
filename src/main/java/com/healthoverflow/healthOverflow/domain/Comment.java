@@ -9,9 +9,11 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(columnDefinition="TEXT")
     private String commentBody;
+
     private Date date;
-private String anonymous;
+    private String anonymous;
 
     @ManyToOne
     private Post post;
