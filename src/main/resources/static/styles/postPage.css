@@ -28,6 +28,7 @@ body{
     /*height: 100vh;*/
   min-height: 100vh;
     min-width: 400px;
+    max-width: 50%;
 }
 form{
     display: flex;
